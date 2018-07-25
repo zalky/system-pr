@@ -18,16 +18,24 @@
   (alter-var-root #'system (constantly ((find-var system-sym)))))
 
 (defn start
-  "Starts the current development system."
+  "Starts the current development system if not already started."
   []
-  (init)
-  (alter-var-root #'system component/start))
+  (when-not (::started system)
+    (init)
+    (alter-var-root #'system
+      (fn [s]
+        (some-> s
+                component/start
+                (assoc ::started true))))))
 
 (defn stop
   "Shuts down and destroys the current development system."
   []
   (alter-var-root #'system
-    (fn [s] (when s (component/stop s)))))
+    (fn [s]
+      (some-> s
+              component/stop
+              (dissoc ::started)))))
 
 (defn reset []
   (stop)
