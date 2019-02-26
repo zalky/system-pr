@@ -1,4 +1,4 @@
-(defproject org.danielsz/system "0.4.2-SNAPSHOT"
+(defproject org.danielsz/system "0.4.3-SNAPSHOT"
   :description "Reloaded components à la carte"
   :url "https://github.com/danielsz/system"
   :license {:name "Eclipse Public License"
@@ -7,11 +7,12 @@
                  [prismatic/schema "1.1.3"]
                  [org.danielsz/lang-utils "0.1.0"]
                  [org.clojure/tools.namespace "0.3.0-alpha3"]
-                 [io.aviso/pretty "0.1.33"]
+                 [io.aviso/pretty "0.1.35"]
                  [com.stuartsierra/component "0.3.1"]]
   :profiles {:test {:dependencies [[org.clojure/clojurescript "1.8.34"]
+                                   [nrepl "0.4.5"]
                                    [org.clojure/tools.nrepl "0.2.13"]
-                                   [cider/cider-nrepl "0.16.0"]
+                                   [nrepl "0.6.0"]
                                    [ring "1.6.2"]
                                    [ring/ring-defaults "0.3.1"]
                                    [ring/ring-mock "0.3.1"]
@@ -21,7 +22,7 @@
                                    [im.chit/hara.io.scheduler "2.3.6"]
                                    [im.chit/adi "0.3.2"]
                                    [com.datomic/datomic-free "0.9.4815.12"]
-                                   [com.novemberain/monger "3.0.2"]
+                                   [com.novemberain/monger "3.1.0"]
                                    [org.clojure/java.jdbc "0.3.5"]
                                    [com.h2database/h2 "1.4.181"]
                                    [org.postgresql/postgresql "9.4-1201-jdbc41"]
@@ -35,7 +36,7 @@
                                    [org.danielsz/maarschalk "0.1.0"]
                                    [riemann-clojure-client "0.4.5"]
                                    [compojure "1.4.0"]
-                                   [http-kit "2.1.19"]
+                                   [http-kit "2.4.0-alpha3"]
                                    [lambdacd "0.13.2"]
                                    [org.immutant/web "2.1.2"]
                                    [hikari-cp "1.6.1"]
