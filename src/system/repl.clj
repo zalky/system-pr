@@ -2,6 +2,7 @@
   (:require [com.stuartsierra.component :as component]
             [clojure.tools.namespace.track :as track]
             [system.reload :as reload]
+            [clojure.main :as main]
             [clojure.stacktrace :as st]
             [io.aviso.ansi :refer [bold-red bold-yellow]] ))
 
@@ -49,10 +50,15 @@
   (when (= mode :tools.namespace) (println "Unmapping namespaces:" (::track/unload @tracker)))
   (println "Recompiling namespaces:" (::track/load @tracker))
   (swap! tracker reload/track-reload (= mode :tools.namespace))
-  (when (::reload/error @tracker)
+  (when-let [e (::reload/error @tracker)]
     (swap! @(resolve 'boot.core/*warnings*) inc)
     (println (bold-red (str "Error reloading: " (::reload/error-ns @tracker))))
-    (st/print-throwable (::reload/error @tracker)))
+    (binding [*out* *err*]
+      (-> e
+          Throwable->map
+          main/ex-triage
+          main/ex-str
+          println)))
 
   (when restart?
     (start)
