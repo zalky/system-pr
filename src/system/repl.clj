@@ -20,22 +20,25 @@
 (defn start
   "Starts the current development system if not already started."
   []
-  (when-not (::started system)
-    (init)
-    (alter-var-root #'system
-      (fn [s]
-        (some-> s
-                component/start
-                (assoc ::started true))))))
+  (letfn [(-start [s]
+            (some-> s
+                    component/start
+                    (assoc ::state ::running)))]
+    (case (::state system)
+      ::stopped (alter-var-root #'system -start)
+      nil       (do (init) (alter-var-root #'system -start))
+      system)))
 
 (defn stop
   "Shuts down and destroys the current development system."
   []
-  (alter-var-root #'system
-    (fn [s]
-      (some-> s
-              component/stop
-              (dissoc ::started)))))
+  (letfn [(-stop [s]
+            (some-> s
+                    component/stop
+                    (assoc ::state ::stopped)))]
+    (case (::state system)
+      ::running (alter-var-root #'system -stop)
+      system)))
 
 (defn reset []
   (stop)
