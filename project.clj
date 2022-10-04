@@ -1,4 +1,4 @@
-(defproject org.danielsz/system "0.4.7-SNAPSHOT"
+(defproject io.zalky/system "0.4.7-SNAPSHOT"
   :description "Reloaded components à la carte"
   :url "https://github.com/danielsz/system"
   :license {:name "Eclipse Public License"
@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.0" :scope "provided"]
                  [prismatic/schema "1.1.12"]
                  [org.danielsz/lang-utils "0.1.3"]
-                 [org.clojure/tools.namespace "1.1.0"]
+                 [io.zalky/tools.namespace "1.3.1-TNS-6"]
                  [io.aviso/pretty "0.1.37"]
                  [com.stuartsierra/component "1.0.0"]]
   :profiles {:test {:dependencies [[org.clojure/clojurescript "1.8.34"]
