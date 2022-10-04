@@ -1,7 +1,31 @@
 * Changes 
-** 0.4.4-SNAPSHOT
+** 0.4.8-SNAPSHOT
+- Mariadb: data-source and connection
+- core.async pipe: high-level component for a core.async pipe
+- Sente client fixes (ChannelSocketClient)
+- Bump dependencies  
+** 0.4.7
+- Etsy: configurable throttle rate
+- Immutant web: bug fix (stopping the server twice in a sequence would throw an error)
+- Meyvn config + dependencies updated to their latest versions
+** 0.4.6
+- Benjamin: ability to wrap component for both persistence-fn and logbook-fn independently.
+- Mariadb: database connection component
+- Next.jdbc: database connection component
+- Defensive measure in durable queue component
+- Scheduled Executor Service: added one-off method for non-repeating tasks
+- Scheduled Executor Service: recursive scheduler for the one-off method (ability to schedule in the scheduled task)
+- Cleanup of Sente component
+- Option to get a throttled Etsy client
+** 0.4.5
+- LDAP component (UnboundID LDAP SDK for Java)
+- New Redis queue component
+- Renamed Redis pub sub component (previously known a Carmine)
+- Bump dependency version for org.danielsz/lang-utils
+** 0.4.4
 - Updated core dependencies (~lang-utils~, for example)
-- nREPL middleware for the Meyvn build tool.
+- nREPL middleware for system (used by the Meyvn build tool).
+- Poco component is even simpler (no need to conj)
 ** 0.4.3
 - Sente security fix: https://github.com/ptaoussanis/sente/issues/137
 - Revamped Scheduled Executor Service component. Declarative. Starting jobs directly from the component. See test for usage.

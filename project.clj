@@ -1,14 +1,14 @@
-(defproject org.danielsz/system "0.4.4-SNAPSHOT"
+(defproject org.danielsz/system "0.4.7-SNAPSHOT"
   :description "Reloaded components à la carte"
   :url "https://github.com/danielsz/system"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.10.0" :scope "provided"]
-                 [prismatic/schema "1.1.3"]
-                 [org.danielsz/lang-utils "0.1.2"]
-                 [org.clojure/tools.namespace "0.3.0-alpha4"]
-                 [io.aviso/pretty "0.1.35"]
-                 [com.stuartsierra/component "0.4.0"]]
+                 [prismatic/schema "1.1.12"]
+                 [org.danielsz/lang-utils "0.1.3"]
+                 [org.clojure/tools.namespace "1.1.0"]
+                 [io.aviso/pretty "0.1.37"]
+                 [com.stuartsierra/component "1.0.0"]]
   :profiles {:test {:dependencies [[org.clojure/clojurescript "1.8.34"]
                                    [nrepl "0.4.5"]
                                    [org.clojure/tools.nrepl "0.2.13"]
@@ -31,12 +31,13 @@
                                    [clojurewerkz/quartzite "2.0.0"]
                                    [com.taoensso/sente "1.8.1"]
                                    [org.danielsz/etsy "0.1.2"]
-                                   [org.danielsz/benjamin "0.1.0"]
+                                   [org.danielsz/benjamin "0.1.3"]
                                    [org.danielsz/kampbell "0.1.6"]
                                    [org.danielsz/maarschalk "0.1.3"]
                                    [riemann-clojure-client "0.5.0"]
                                    [io.netty/netty-all "4.1.34.Final"]
                                    [compojure "1.4.0"]
+                                   [com.unboundid/unboundid-ldapsdk "4.0.14"]
                                    [http-kit "2.4.0-alpha3"]
                                    [lambdacd "0.13.2"]
                                    [org.immutant/web "2.1.2"]
